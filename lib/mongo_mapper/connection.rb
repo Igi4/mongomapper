@@ -3,14 +3,14 @@ require 'uri'
 
 module MongoMapper
   module Connection
-    @@connection    = nil
+    @@connection    = Mongo::MongoClient.new
     @@database      = nil
     @@database_name = nil
     @@config        = nil
 
     # @api public
     def connection
-      @@connection ||= Mongo::MongoClient.new
+      @@connection
     end
 
     def connection?
